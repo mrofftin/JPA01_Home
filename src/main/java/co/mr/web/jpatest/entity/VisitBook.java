@@ -4,6 +4,13 @@ import lombok.*;
 
 import javax.persistence.*;
 
+//-------------------
+//객체 - 테이블 맵핑 : @Entity, @Table
+//필드 - 컬럼의 팹핑 : @Column
+//기본키의 맵핑 : @Id
+//조인 맵핑 : @ManyToOne, @JoinColumn
+//-------------------
+
 // 해당 클래스가 Entity를 위한 클래스라는 것을 명시,
 // 이클래스의 인스턴스들은 JPA에의해 관리되는 엔티티 객체가 됨
 // 옵션에 따라 자동으로 테이블을 생성, 이클래스의 멤버변수에 따라 자동으로 컬럼이 생성
@@ -30,8 +37,8 @@ public class VisitBook {
 
     // 추가적인 필드(컬럼)가 필요한 경우 사용
     // 다양한 속성 지정 가능 nullable, name, length
-    @Column
+    @Column(length = 200, nullable = false)
     private String visitMemo;
 
-
+    // properties 설정 후 실행하면 데이터베이스에 테이블이 생성됨
 }
